@@ -8,7 +8,7 @@ on:
 
 jobs:
   package:
-    runs-on: arc-runner-set
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v4
     - name: Package step
@@ -17,7 +17,7 @@ jobs:
         echo "package"
   build:
     needs: package
-    runs-on: arc-runner-set
+    runs-on: self-hosted
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -48,7 +48,7 @@ jobs:
   
   deploy:
     needs: build
-    runs-on: arc-runner-set
+    runs-on: self-hosted
     steps:
       - name: Checkout
         uses: actions/checkout@v4
